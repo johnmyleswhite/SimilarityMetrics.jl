@@ -13,9 +13,9 @@ my_tests = ["test/cosine.jl",
             "test/overlap.jl",
             "test/pearson.jl"]
 
-println("Running tests:")
+@printf "Running tests:\n"
 
 for my_test in my_tests
-    println(" * $(my_test)")
+    @printf " * %s\n" my_test
     include(my_test)
 end
