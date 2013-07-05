@@ -13,6 +13,8 @@ Available metrics:
 
 # Usage Examples
 
+Measuring the similarity between sets:
+
 	using SimilarityMetrics
 
 	a, b = Set{ASCIIString}(), Set{ASCIIString}()
@@ -30,6 +32,8 @@ Available metrics:
 	matching(a, b)
 	overlap(a, b)
 	pearson(a, b)
+
+Measuring the similarity between vectors:
 
 	a, b = [0, 0, 0, 0], [0, 0, 0, 0]
 
