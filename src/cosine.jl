@@ -31,6 +31,8 @@ function norm_sparse(v::AbstractSparseMatrix)
     ret
 end
 
+rowvals(S::SparseMatrixCSC) = S.rowval
+
 function dot_sparse(v::AbstractSparseMatrix,w::AbstractSparseMatrix)
     non_0_idx = intersect(rowvals(w), rowvals(v))
     ret = zero(eltype(v))
