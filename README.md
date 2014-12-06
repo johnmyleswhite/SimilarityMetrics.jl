@@ -1,6 +1,12 @@
 SimilarityMetrics.jl
 ====================
 
+# NOTICE
+
+**This package is unmaintained. Its reliability is not guaranteed.**
+
+# Introduction
+
 Available metrics:
 
 * `cosine(a, b)`: Cosine similarity between sets/vectors.
