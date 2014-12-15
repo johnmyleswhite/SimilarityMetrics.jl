@@ -20,3 +20,28 @@ function cosine(a::AbstractVector, b::AbstractVector)
 	end
 	return sI / sqrt(sA * sB)
 end
+
+function norm_sparse(v::AbstractSparseMatrix)
+    non_0_vals = nonzeros(v)
+    m = length(non_0_vals)
+    ret = zero(eltype(v))
+    for i in 1:m
+        ret += non_0_vals[i]^2
+    end
+    ret
+end
+
+rowvals(S::SparseMatrixCSC) = S.rowval
+
+function dot_sparse(v::AbstractSparseMatrix,w::AbstractSparseMatrix)
+    non_0_idx = intersect(rowvals(w), rowvals(v))
+    ret = zero(eltype(v))
+    for i in non_0_idx
+        ret += v[i] * w[i]
+    end
+    ret
+end
+
+function cosine_sparse(i::AbstractSparseMatrix, j::AbstractSparseMatrix)
+    return dot_sparse(i,j)/sqrt(norm_sparse(i)*norm_sparse(j))
+end
